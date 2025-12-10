@@ -1,50 +1,126 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Get started
+# 🚕 TaxiApp – Sürücü ve Yolcu Uygulaması
 
-1. Install dependencies
+Bu proje, eğitim döneminde geliştirilmiş olan, **sürücü ve yolcu için iki ayrı panel** içeren temel bir taksi çağırma uygulamasıdır. Uygulama, **React Native** ile geliştirilmiş ve **Firebase** altyapısı ile desteklenmiştir.
 
-   ```bash
-   npm install
-   ```
+Uygulama, sürücü ve yolcu etkileşimlerini simülasyon üzerinden gösterir; gerçek GPS konum verisi kullanılmaz.
 
-2. Start the app
+---
 
-   ```bash
-    npx expo start
-   ```
+## 📌 Özellikler
 
-In the output, you'll find options to open the app in a
+### 👤 Yolcu Uygulaması
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+* Kullanıcı girişi ve kayıt sistemi
+* Pickup ve dropoff adresi seçimi
+* Sürücü seçme ve bildirim gönderme
+* Seçilen sürücüyü canlı simülasyon üzerinden takip etme
+* Sürücü yolcuyu aldığında durum güncellemesi
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### 🚗 Sürücü Uygulaması
 
-## Get a fresh project
+* Sürücü kayıt ekranı
+* Araç bilgileri ekleme (marka, plaka, sigorta vb.)
+* Görev kabul etme
+* Yolcu konumunu görüntüleme (simülasyon)
+* Yolculuk başlatma / tamamlama bildirimi
 
-When you're ready, run:
+---
 
-```bash
-npm run reset-project
+## 🏗 Kullanılan Teknolojiler
+
+### **Frontend**
+
+* React Native
+* React Navigation
+* Google Maps / Directions API (rota ve simülasyon için)
+* Expo / react-native-maps (simülasyon için konum ve harita gösterimi)
+
+### **Backend / Database**
+
+* Firebase Authentication (kullanıcı yönetimi)
+* Firebase Firestore (yolculuk verilerini okuma ve güncelleme)
+* Firebase Realtime Database (opsiyonel: gerçek zamanlı konum takibi için kullanılabilir)
+
+---
+
+## 📡 API ve İstekler
+
+| Sistem                    | İşlev                                          | Kod içinde nerede?                                |
+| ------------------------- | ---------------------------------------------- | ------------------------------------------------- |
+| **Google Directions API** | Pickup → Dropoff arasındaki rota bilgisi almak | `startSimulation()` ve `updateRouteCoordinates()` |
+| **Firebase Firestore**    | Yolculuk verilerini okuma ve güncelleme        | `onSnapshot` ve `updateDoc`                       |
+
+> Not: Bu proje **gerçek GPS kullanmaz**, sürücü konumu ve rota **simülasyon** ile gösterilir.
+
+---
+
+## 📁 Proje Yapısı
+
+Proje iki ayrı uygulama klasörü içerir:
+
+```txt
+TaxiApp/
+│
+├── driver/        → Sürücü arayüzü
+└── passenger/     → Yolcu arayüzü
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Her klasör, kendi bağımsız **React Native uygulamasını** çalıştırır.
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
+## ▶️ Çalıştırma
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### 1) Projeyi klonlayın
 
-## Join the community
+```bash
+git clone https://github.com/Ayszgn/taxi-app.git
+```
 
-Join our community of developers creating universal apps.
+### 2) Driver uygulamasını çalıştırın
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+cd driver
+npm install
+npm start
+```
+
+### 3) Passenger uygulamasını çalıştırın
+
+```bash
+cd passenger
+npm install
+npm start
+```
+
+---
+
+## 🔐 Firebase Yapılandırması
+
+Her iki uygulamada da `firebase.js` dosyasında **Firestore ve Auth ayarları** bulunur.
+Dosya adları veya yapı farklı ise güncelleme yapılması gerekebilir.
+
+---
+
+## ⚠️ Önemli Notlar
+
+* Bu proje eğitim döneminde geliştirilmiştir; bazı kod bölümleri temizlenmeye ve optimize edilmeye ihtiyaç duyabilir.
+* Sürücü ve yolcu konumları **simülasyon** üzerinden güncellenir; gerçek cihaz GPS verisi kullanılmaz.
+* Rota bilgileri **Google Directions API** ile alınır ve Firebase Firestore üzerinden yolculuk durumu güncellenir.
+
+---
+
+## 📜 Lisans
+
+Bu proje tamamen **öğrenme ve gösterim amaçlıdır**.
+
+---
+
+## 📌 Önerilen Geliştirmeler
+
+* Gerçek konum takibi eklemek için `expo-location` veya `navigator.geolocation` kullanılabilir.
+* Görevler ve rota güncellemeleri için **push notification** desteği eklenebilir.
+* UI/UX geliştirmeleri ile uygulama daha kullanıcı dostu hale getirilebilir.
+
