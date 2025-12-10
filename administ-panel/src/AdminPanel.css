@@ -1,0 +1,230 @@
+.admin-panel {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.admin-nav {
+  background-color: #2c3e50;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logout-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.admin-content {
+  padding: 2rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.dashboard-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.dashboard-card h3 {
+  margin: 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+.dashboard-card .number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 0.5rem 0;
+}
+
+.admin-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.drivers-section,
+.passengers-section,
+.rides-section {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.passengers-section h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #eee;
+}
+
+.passengers-section .action-button {
+  width: 100%;
+  text-align: center;
+}
+
+.complaint-button {
+  background-color: #e74c3c !important;
+}
+
+.complaint-button:hover {
+  background-color: #c0392b !important;
+}
+
+.action-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 1rem;
+}
+
+.action-button:hover {
+  background-color: #2980b9;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.nav-button {
+  background: transparent;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.nav-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-button.active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.approval-button {
+  background-color: #f39c12 !important; /* Turuncu renk */
+  margin-top: 10px;
+  width: 100%;
+}
+
+.approval-button:hover {
+  background-color: #d68910 !important;
+}
+
+.rides-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rides-section .action-button {
+  width: 100%;
+  margin: 0;
+}
+
+.management-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.management-section {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.management-section h3 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #eee;
+  font-size: 1.2rem;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.management-button {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #3498db;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  font-weight: 500;
+}
+
+.management-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-1px);
+}
+
+.management-button.warning {
+  background-color: #f39c12;
+}
+
+.management-button.warning:hover {
+  background-color: #d68910;
+}
+
+.management-button.danger {
+  background-color: #e74c3c;
+}
+
+.management-button.danger:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 768px) {
+  .management-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .management-section {
+    padding: 1rem;
+  }
+
+  .management-button {
+    padding: 0.7rem;
+  }
+} 
